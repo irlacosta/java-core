@@ -2,7 +2,7 @@ package com.exemplo.playground;
 
 public class MinhaCalculadora {
 
-    public int somar(int a, int b) {
+    public static int somar(int a, int b) {
         return a + b;
     }
 
