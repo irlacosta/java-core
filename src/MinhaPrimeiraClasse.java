@@ -1,3 +1,4 @@
+import com.exemplo.playground.UserInput;
 import com.exemplo.playground.MinhaCalculadora;
 
 import java.util.InputMismatchException;
@@ -14,35 +15,34 @@ public class MinhaPrimeiraClasse {
 
         try {
             operacao = scanner.nextInt();
+            MinhaCalculadora minhaCalculadora = new MinhaCalculadora();
 
             if (operacao == 1) {
-                System.out.println("Operação SOMA escolhida");
-                System.out.println("Informe um número: ");
-                Integer firstNumber = scanner.nextInt();
-                System.out.println("Informe outro número: ");
-                Integer secondNumber = scanner.nextInt();
-                Integer resultado = MinhaCalculadora.somar(firstNumber,secondNumber);
-                System.out.println("Resultado: " + resultado);
+                System.out.println("SOMA");
+                UserInput userInput = readValues();
+                Integer result = minhaCalculadora.sum(userInput.firstNumber, userInput.secondNumber);
+                System.out.println("Resultado: " + result);
             } else if (operacao == 2) {
-                System.out.println("Operação SUBTRAÇÃO escolhida");
-                System.out.println("Informe um número: ");
-                Integer firstNumber = scanner.nextInt();
-                System.out.println("Informe outro número: ");
-                Integer secondNumber = scanner.nextInt();
-                Integer resultado = MinhaCalculadora.subtrair(firstNumber,secondNumber);
-                System.out.println("Resultado: " + resultado);
+                System.out.println("SUBTRAÇÃO");
+                UserInput userInput = readValues();
+                Integer result = minhaCalculadora.subtract(userInput.firstNumber, userInput.secondNumber);
+                System.out.println("Resultado: " + result);
             } else {
-                System.out.println("Operação não existe");
+                System.out.println("Operação Inválida");
             }
         } catch (InputMismatchException exception) {
-            System.out.println("Operação não existe");
+            System.out.println("Operação Inválida");
+            System.out.println("Digite uma opcao válida.");
         }
-
-
-//
-//        System.out.println("Informe outro número: ");
-//        Scanner scannerSecondNumber = new Scanner(System.in);
-//        scannerSecondNumber.nextLine();
     }
 
+    public static UserInput readValues() {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Informe um número: ");
+        Integer firstNumber = scn.nextInt();
+        System.out.println("Informe outro número: ");
+        Integer secondNumber = scn.nextInt();
+        UserInput userInput = new UserInput(firstNumber, secondNumber);
+        return userInput;
+    }
 }

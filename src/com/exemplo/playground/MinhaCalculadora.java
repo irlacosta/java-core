@@ -2,12 +2,12 @@ package com.exemplo.playground;
 
 public class MinhaCalculadora {
 
-    public static int somar(int a, int b) {
-        return a + b;
+    public int sum(int value1, int value2) {
+        var result = value1 + value2;
+        return result;
     }
-
-    public static int subtrair(int a, int b) {
-        return a - b;
+    public int subtract(int value1, int value2) {
+        var result = value1 - value2;
+        return result;
     }
-
 }
