@@ -3,13 +3,13 @@ package com.exemplo.playground;
 public class MainIndiceMassaCorporal {
     public static void main(String[] args) {
         //criar um paciente
-        Paciente pacienteJoao = new Paciente(64.9, 1.87);
+        Paciente pacienteJoao = new Paciente("João", 64.9, 1.87);
 
         //criar um objeto de IndiceDeMassaCorporal com um paciente
         IndiceMassaCorporal imcJoao = new IndiceMassaCorporal(pacienteJoao);
 
         //calcular o IMC
-        double imc = imcJoao.calcularIMC(63.9, 1.63);
+        double imc = imcJoao.calcularIMC(pacienteJoao);
 
         //classificar o IMC
         String categoria = imcJoao.classificarIMC(imc);
@@ -17,6 +17,12 @@ public class MainIndiceMassaCorporal {
         // Exibindo resultados
         System.out.println("IMC: " + imc);
         System.out.println("Classificação: " + categoria);
+
+        //Exibir um relatorio ao mostrar na tela
+        //Obter valores do usuário(String nome = scanner.nextLine(); -- println...) --> IF (entrar na boate 18 anos e 20 reais)
+        //criar enum com ClassificaIMC(PESSOA_MAGRA, PESSOA_NORMAL, PESSOA_SOBREPESO)--> enum e Switch
+        //criar projeto lista aluno, professor, nota, etc.. aprovado, reprovado,
+        //digite zero para sair --> While
     }
 }
 

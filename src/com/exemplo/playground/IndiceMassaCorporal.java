@@ -10,24 +10,23 @@ public class IndiceMassaCorporal {
         this.paciente = paciente;
     }
 
-    public double calcularIMC(double peso, double altura) {
-        imc = peso / (altura * altura);
+    public double calcularIMC(Paciente paciente) {
+        imc = paciente.getPeso() / (paciente.getAltura() * paciente.getAltura());
         return imc;
     }
 
     public String classificarIMC(double imc) {
         if (imc < 18.5) {
-            categoria = ("Magreza");
-            grauDeObesidade = "0";
+            return "Magreza";
         } else if (imc > 18.5 && imc < 24.9) {
-            categoria = ("Normal");
-            grauDeObesidade = "0";
+            return "Normal";
         } else if (imc > 25.0 && imc < 29.9) {
-            categoria = ("Sobrepeso");
-            grauDeObesidade = "1";
-        } else {
-            categoria = ("aqui imc");
+            return "Sobrepeso";
+        } else if(imc <= 34.99) {
+            return "Obesidade";
+        } else if (imc <= 39.99) {
+            return "Obesidade grave";
         }
-        return categoria;
+        return "Obesidade Mórbida";
     }
 }
