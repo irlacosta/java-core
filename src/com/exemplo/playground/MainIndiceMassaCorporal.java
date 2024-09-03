@@ -1,7 +1,12 @@
 package com.exemplo.playground;
 
+import static com.exemplo.playground.IndiceMassaCorporal.*;
+
 public class MainIndiceMassaCorporal {
     public static void main(String[] args) {
+        double imc;
+        String categoria;
+
         //criar um paciente
         Paciente pacienteJoao = new Paciente("João", 64.9, 1.87);
 
@@ -9,10 +14,10 @@ public class MainIndiceMassaCorporal {
         IndiceMassaCorporal imcJoao = new IndiceMassaCorporal(pacienteJoao);
 
         //calcular o IMC
-        double imc = imcJoao.calcularIMC(pacienteJoao);
+        imc = calcularIMC(pacienteJoao);
 
         //classificar o IMC
-        String categoria = imcJoao.classificarIMC(imc);
+        categoria = imcJoao.classificarIMC(imc);
 
         // Exibindo resultados
         System.out.println("IMC: " + imc);
@@ -24,5 +29,10 @@ public class MainIndiceMassaCorporal {
         //criar projeto lista aluno, professor, nota, etc.. aprovado, reprovado,
         //digite zero para sair --> While
     }
+
+    private static double calcularIMC(Paciente paciente) {
+        return paciente.getPeso() / (paciente.getAltura() * paciente.getAltura());
+    }
 }
+
 

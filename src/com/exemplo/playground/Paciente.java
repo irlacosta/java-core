@@ -14,6 +14,7 @@ public class Paciente {
     public String getNome() {
         return nome;
     }
+
     public double getPeso() {
         return peso;
     }

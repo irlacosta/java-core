@@ -4,15 +4,18 @@ public class IndiceMassaCorporal {
     private Paciente paciente;
     private String categoria;
     private String grauDeObesidade;
-    double imc;
+    private double imc;
+
+    public IndiceMassaCorporal() {}
 
     public IndiceMassaCorporal(Paciente paciente) {
         this.paciente = paciente;
     }
 
-    public double calcularIMC(Paciente paciente) {
-        imc = paciente.getPeso() / (paciente.getAltura() * paciente.getAltura());
-        return imc;
+    public IndiceMassaCorporal(Paciente paciente, String categoria, String grauDeObesidade) {
+        this.paciente = paciente;
+        this.categoria = categoria;
+        this.grauDeObesidade = grauDeObesidade;
     }
 
     public String classificarIMC(double imc) {
